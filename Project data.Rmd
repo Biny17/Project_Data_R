@@ -20,3 +20,25 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 ```{r}
 d <- c(1,2)
 ```
+
+```{r}
+une_partie1=function(){
+
+#initialisation 
+tour=c(urne=5,choix=NA,piece=NA,ntour=0) 
+partie=rbind(tour) 
+#tours 
+while(tour[1]!=0){ 
+tour[4]=tour[4]+1 
+choix=1 #dans chaque tour on choisit pile 
+tour[2]=choix 
+piece=sample(1:2,size=1) #codes: 1=pile, 2=face 
+tour[3]=piece 
+if(choix==piece) tour[1]=tour[1]-1 
+partie=rbind(partie,tour) 
+} 
+return(partie) 
+} 
+
+
+```
