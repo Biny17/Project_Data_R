@@ -219,6 +219,9 @@ pre code {
 <p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
+<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Add a new chunk by clicking the <em>Ins ert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
@@ -226,11 +229,7 @@ pre code {
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5lX3BhcnRpZTE9ZnVuY3Rpb24oKXtcbiAgI2luaXRpYWxpc2F0aW9uXG4gIHRvdXI9Yyh1cm5lPTUsY2hvaXg9TkEscGllY2U9TkEsbnRvdXI9MCkgXG5wYXJ0aWU9cmJpbmQodG91cikgXG4jdG91cnMgXG53aGlsZSh0b3VyWzFdIT0wKXsgXG50b3VyWzRdPXRvdXJbNF0rMSBcbmNob2l4PTEgI2RhbnMgY2hhcXVlIHRvdXIgb24gY2hvaXNpdCBwaWxlIFxudG91clsyXT1jaG9peCBcbnBpZWNlPXNhbXBsZSgxOjIsc2l6ZT0xKSAjY29kZXM6IDE9cGlsZSwgMj1mYWNlIFxudG91clszXT1waWVjZSBcbmlmKGNob2l4PT1waWVjZSkgdG91clsxXT10b3VyWzFdLTEgXG5wYXJ0aWU9cmJpbmQocGFydGllLHRvdXIpIFxufSBcbnJldHVybihwYXJ0aWUpIFxufSBcblxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5lX3BhcnRpZTE9ZnVuY3Rpb24oKXtcbiAgI2luaXRpYWxpc2F0aW9uXG4gIHRvdXI9Yyh1cm5lPTUsY2hvaXg9TkEscGllY2U9TkEsbnRvdXI9MCkgXG5wYXJ0aWU9cmJpbmQodG91cikgXG4jdG91cnMgXG53aGlsZSh0b3VyWzFdIT0wKXsgXG50b3VyWzRdPXRvdXJbNF0rMSBcbmNob2l4PTEgI2RhbnMgY2hhcXVlIHRvdXIgb24gY2hvaXNpdCBwaWxlIFxudG91clsyXT1jaG9peCBcbnBpZWNlPXNhbXBsZSgxOjIsc2l6ZT0xKSAjY29kZXM6IDE9cGlsZSwgMj1mYWNlIFxudG91clszXT1waWVjZSBcbmlmKGNob2l4PT1waWVjZSl7IFxuICB0b3VyWzFdPXRvdXJbMV0tMSBcbn1cbnBhcnRpZT1yYmluZChwYXJ0aWUsdG91cikgXG59IFxucmV0dXJuKHBhcnRpZSkgXG59IFxuXG5gYGAifQ== -->
 <pre class="r"><code>une_partie1=function(){
   #initialisation
   tour=c(urne=5,choix=NA,piece=NA,ntour=0) 
@@ -242,7 +241,9 @@ choix=1 #dans chaque tour on choisit pile
 tour[2]=choix 
 piece=sample(1:2,size=1) #codes: 1=pile, 2=face 
 tour[3]=piece 
-if(choix==piece) tour[1]=tour[1]-1 
+if(choix==piece){ 
+  tour[1]=tour[1]-1 
+}
 partie=rbind(partie,tour) 
 } 
 return(partie) 
@@ -260,12 +261,48 @@ res=replicate(n,une_partie1())
 duree=sapply(res,FUN=function(partie) nrow(partie)-1)
 mean(duree)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEwLjE0XG4ifQ== -->
-<pre><code>[1] 10.14</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEwLjIyXG4ifQ== -->
+<pre><code>[1] 10.22</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5lX3BhcnRpZTI9ZnVuY3Rpb24oKXtcbiAgI2luaXRpYWxpc2F0aW9uXG4gIHRvdXI9Yyh1cm5lMT01LHVybmUyPTUsY2hvaXg9TkEscGllY2U9TkEsbnRvdXI9MCkgXG5wYXJ0aWUyPXJiaW5kKHRvdXIpXG4jdG91cnMgXG53aGlsZSh0b3VyWzFdIT0wIHwgdG91clsyXSAhPTApeyBcbnRvdXJbNV09dG91cls1XSsxXG5jaG9peD0xXG5pZih0b3VyWzFdPT0wKSBjaG9peD0yICNzaSBsJ3VybmUgMSBlc3QgdmlkZSBvbiBwcmVuZCBmYWNlXG5pZih0b3VyWzJdPT0wKSBjaG9peD0xICNzaSBsJ3VybmUgMiBlc3QgdmlkZSBvbiBwcmVuZCBwaWxlXG50b3VyWzNdPWNob2l4IFxucGllY2U9c2FtcGxlKDE6MixzaXplPTEpICNjb2RlczogMT1waWxlLCAyPWZhY2UgXG50b3VyWzRdPXBpZWNlIFxuaWYoY2hvaXg9PXBpZWNlICYgY2hvaXg9PTEpIHRvdXJbMV09dG91clsxXS0xIFxuaWYoY2hvaXg9PXBpZWNlICYgY2hvaXg9PTIpIHRvdXJbMl09dG91clsyXS0xXG5wYXJ0aWUyPXJiaW5kKHBhcnRpZTIsdG91cikgXG59IFxucmV0dXJuKHBhcnRpZTIpIFxufSBcbmBgYCJ9 -->
+<pre class="r"><code>une_partie2=function(){
+  #initialisation
+  tour=c(urne1=5,urne2=5,choix=NA,piece=NA,ntour=0) 
+partie2=rbind(tour)
+#tours 
+while(tour[1]!=0 | tour[2] !=0){ 
+tour[5]=tour[5]+1
+choix=1
+if(tour[1]==0) choix=2 #si l&#39;urne 1 est vide on prend face
+if(tour[2]==0) choix=1 #si l&#39;urne 2 est vide on prend pile
+tour[3]=choix 
+piece=sample(1:2,size=1) #codes: 1=pile, 2=face 
+tour[4]=piece 
+if(choix==piece &amp; choix==1) tour[1]=tour[1]-1 
+if(choix==piece &amp; choix==2) tour[2]=tour[2]-1
+partie2=rbind(partie2,tour) 
+} 
+return(partie2) 
+} </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubj0xMDBcbnJlcz1yZXBsaWNhdGUobix1bmVfcGFydGllMigpKVxuZHVyZWU9c2FwcGx5KHJlcyxGVU49ZnVuY3Rpb24ocGFydGllKSBucm93KHBhcnRpZSktMSlcbm1lYW4oZHVyZWUpXG5gYGAifQ== -->
+<pre class="r"><code>n=100
+res=replicate(n,une_partie2())
+duree=sapply(res,FUN=function(partie) nrow(partie)-1)
+mean(duree)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIwLjU1XG4ifQ== -->
+<pre><code>[1] 20.55</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4KClRyeSBleGVjdXRpbmcgdGhpcyBjaHVuayBieSBjbGlja2luZyB0aGUgKlJ1biogYnV0dG9uIHdpdGhpbiB0aGUgY2h1bmsgb3IgYnkgcGxhY2luZyB5b3VyIGN1cnNvciBpbnNpZGUgaXQgYW5kIHByZXNzaW5nICpDdHJsK1NoaWZ0K0VudGVyKi4KCmBgYHtyfQpwbG90KGNhcnMpCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zIGVydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4KCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLgoKVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLgoKYGBge3J9CmQgPC0gYygxLDIpCmBgYAoKYGBge3J9CnVuZV9wYXJ0aWUxPWZ1bmN0aW9uKCl7CiAgI2luaXRpYWxpc2F0aW9uCiAgdG91cj1jKHVybmU9NSxjaG9peD1OQSxwaWVjZT1OQSxudG91cj0wKSAKcGFydGllPXJiaW5kKHRvdXIpIAojdG91cnMgCndoaWxlKHRvdXJbMV0hPTApeyAKdG91cls0XT10b3VyWzRdKzEgCmNob2l4PTEgI2RhbnMgY2hhcXVlIHRvdXIgb24gY2hvaXNpdCBwaWxlIAp0b3VyWzJdPWNob2l4IApwaWVjZT1zYW1wbGUoMToyLHNpemU9MSkgI2NvZGVzOiAxPXBpbGUsIDI9ZmFjZSAKdG91clszXT1waWVjZSAKaWYoY2hvaXg9PXBpZWNlKSB0b3VyWzFdPXRvdXJbMV0tMSAKcGFydGllPXJiaW5kKHBhcnRpZSx0b3VyKSAKfSAKcmV0dXJuKHBhcnRpZSkgCn0gCgpgYGAKCmBgYCB7I2luaXRpYWxpc2F0aW9ufQoKYGBgCgpgYGB7cn0Kbj0xMDAKcmVzPXJlcGxpY2F0ZShuLHVuZV9wYXJ0aWUxKCkpCmR1cmVlPXNhcHBseShyZXMsRlVOPWZ1bmN0aW9uKHBhcnRpZSkgbnJvdyhwYXJ0aWUpLTEpCm1lYW4oZHVyZWUpCgpgYGAK</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLg0KDQpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouDQoNCmBgYHtyfQ0KcGxvdChjYXJzKQ0KYGBgDQoNCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKklucyBlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouDQoNCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLg0KDQpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuDQoNCg0KYGBge3IgUEFSVElFLTF9DQp1bmVfcGFydGllMT1mdW5jdGlvbigpew0KICAjaW5pdGlhbGlzYXRpb24NCiAgdG91cj1jKHVybmU9NSxjaG9peD1OQSxwaWVjZT1OQSxudG91cj0wKSANCnBhcnRpZT1yYmluZCh0b3VyKSANCiN0b3VycyANCndoaWxlKHRvdXJbMV0hPTApeyANCnRvdXJbNF09dG91cls0XSsxIA0KY2hvaXg9MSAjZGFucyBjaGFxdWUgdG91ciBvbiBjaG9pc2l0IHBpbGUgDQp0b3VyWzJdPWNob2l4IA0KcGllY2U9c2FtcGxlKDE6MixzaXplPTEpICNjb2RlczogMT1waWxlLCAyPWZhY2UgDQp0b3VyWzNdPXBpZWNlIA0KaWYoY2hvaXg9PXBpZWNlKXsgDQogIHRvdXJbMV09dG91clsxXS0xIA0KfQ0KcGFydGllPXJiaW5kKHBhcnRpZSx0b3VyKSANCn0gDQpyZXR1cm4ocGFydGllKSANCn0gDQoNCmBgYA0KDQpgYGAgeyNpbml0aWFsaXNhdGlvbn0NCmBgYA0KDQpgYGB7cn0NCm49MTAwDQpyZXM9cmVwbGljYXRlKG4sdW5lX3BhcnRpZTEoKSkNCmR1cmVlPXNhcHBseShyZXMsRlVOPWZ1bmN0aW9uKHBhcnRpZSkgbnJvdyhwYXJ0aWUpLTEpDQptZWFuKGR1cmVlKQ0KDQpgYGANCmBgYHtyfQ0KdW5lX3BhcnRpZTI9ZnVuY3Rpb24oKXsNCiAgI2luaXRpYWxpc2F0aW9uDQogIHRvdXI9Yyh1cm5lMT01LHVybmUyPTUsY2hvaXg9TkEscGllY2U9TkEsbnRvdXI9MCkgDQpwYXJ0aWUyPXJiaW5kKHRvdXIpDQojdG91cnMgDQp3aGlsZSh0b3VyWzFdIT0wIHwgdG91clsyXSAhPTApeyANCnRvdXJbNV09dG91cls1XSsxDQpjaG9peD0xDQppZih0b3VyWzFdPT0wKSBjaG9peD0yICNzaSBsJ3VybmUgMSBlc3QgdmlkZSBvbiBwcmVuZCBmYWNlDQppZih0b3VyWzJdPT0wKSBjaG9peD0xICNzaSBsJ3VybmUgMiBlc3QgdmlkZSBvbiBwcmVuZCBwaWxlDQp0b3VyWzNdPWNob2l4IA0KcGllY2U9c2FtcGxlKDE6MixzaXplPTEpICNjb2RlczogMT1waWxlLCAyPWZhY2UgDQp0b3VyWzRdPXBpZWNlIA0KaWYoY2hvaXg9PXBpZWNlICYgY2hvaXg9PTEpIHRvdXJbMV09dG91clsxXS0xIA0KaWYoY2hvaXg9PXBpZWNlICYgY2hvaXg9PTIpIHRvdXJbMl09dG91clsyXS0xDQpwYXJ0aWUyPXJiaW5kKHBhcnRpZTIsdG91cikgDQp9IA0KcmV0dXJuKHBhcnRpZTIpIA0KfSANCmBgYA0KDQpgYGB7cn0NCm49MTAwDQpyZXM9cmVwbGljYXRlKG4sdW5lX3BhcnRpZTIoKSkNCmR1cmVlPXNhcHBseShyZXMsRlVOPWZ1bmN0aW9uKHBhcnRpZSkgbnJvdyhwYXJ0aWUpLTEpDQptZWFuKGR1cmVlKQ0KYGBg</div>
 
 
 

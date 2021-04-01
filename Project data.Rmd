@@ -17,11 +17,8 @@ When you save the notebook, an HTML file containing the code and output will be 
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 
-```{r}
-d <- c(1,2)
-```
 
-```{r}
+```{r PARTIE-1}
 une_partie1=function(){
   #initialisation
   tour=c(urne=5,choix=NA,piece=NA,ntour=0) 
@@ -33,7 +30,9 @@ choix=1 #dans chaque tour on choisit pile
 tour[2]=choix 
 piece=sample(1:2,size=1) #codes: 1=pile, 2=face 
 tour[3]=piece 
-if(choix==piece) tour[1]=tour[1]-1 
+if(choix==piece){ 
+  tour[1]=tour[1]-1 
+}
 partie=rbind(partie,tour) 
 } 
 return(partie) 
@@ -42,7 +41,6 @@ return(partie)
 ```
 
 ``` {#initialisation}
-
 ```
 
 ```{r}
@@ -51,4 +49,32 @@ res=replicate(n,une_partie1())
 duree=sapply(res,FUN=function(partie) nrow(partie)-1)
 mean(duree)
 
+```
+```{r}
+une_partie2=function(){
+  #initialisation
+  tour=c(urne1=5,urne2=5,choix=NA,piece=NA,ntour=0) 
+partie2=rbind(tour)
+#tours 
+while(tour[1]!=0 | tour[2] !=0){ 
+tour[5]=tour[5]+1
+choix=1
+if(tour[1]==0) choix=2 #si l'urne 1 est vide on prend face
+if(tour[2]==0) choix=1 #si l'urne 2 est vide on prend pile
+tour[3]=choix 
+piece=sample(1:2,size=1) #codes: 1=pile, 2=face 
+tour[4]=piece 
+if(choix==piece & choix==1) tour[1]=tour[1]-1 
+if(choix==piece & choix==2) tour[2]=tour[2]-1
+partie2=rbind(partie2,tour) 
+} 
+return(partie2) 
+} 
+```
+
+```{r}
+n=100
+res=replicate(n,une_partie2())
+duree=sapply(res,FUN=function(partie) nrow(partie)-1)
+mean(duree)
 ```
