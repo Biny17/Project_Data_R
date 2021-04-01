@@ -23,9 +23,8 @@ d <- c(1,2)
 
 ```{r}
 une_partie1=function(){
-
-#initialisation 
-tour=c(urne=5,choix=NA,piece=NA,ntour=0) 
+  #initialisation
+  tour=c(urne=5,choix=NA,piece=NA,ntour=0) 
 partie=rbind(tour) 
 #tours 
 while(tour[1]!=0){ 
@@ -40,5 +39,16 @@ partie=rbind(partie,tour)
 return(partie) 
 } 
 
+```
+
+``` {#initialisation}
+
+```
+
+```{r}
+n=100
+res=replicate(n,une_partie1())
+duree=sapply(res,FUN=function(partie) nrow(partie)-1)
+mean(duree)
 
 ```
